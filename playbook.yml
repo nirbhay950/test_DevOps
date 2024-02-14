@@ -1,0 +1,5 @@
+---
+hosts: all
+path: /var/log/
+Dest: /Dev/ubr/
+
