@@ -1,7 +1,7 @@
 #!/bin/bash
 
 duration=5
-csv_file="/home/nirbhay/Desktop/script_mib.csv"
+csv_file="~/script_mib.csv"
 end_time=$(date -d "now + 15 minutes" +%s)
 
 # Check if the file exists; if not, create it with a header
