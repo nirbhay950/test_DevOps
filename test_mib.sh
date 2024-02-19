@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo " Hello"
+echo " Jenkis trigger"
+echo " Lets see"
+<<comment
 duration=5
 csv_file="~/script_mib.csv"
 end_time=$(date -d "now + 15 minutes" +%s)
@@ -13,6 +17,7 @@ while [ $(date +%s) -lt $end_time ]; do
     current_time=$(date "+%Y-%m-%d %H:%M:%S")
 
     # Execute your SNMP commands here and capture the output
+    
     oduTDMAPerformCurrentMCS=$(snmpwalk -v 2c -c gr8cligui 192.168.171.121 .1.3.6.1.4.1.3577.2.1.2.1.2.1)
     oduTDMASNRValue=$(snmpwalk -v 2c -c gr8cligui 192.168.171.121 .1.3.6.1.4.1.3577.2.1.2.1.3.1)
     oduTDMAPerformCurrentRSSI=$(snmpwalk -v 2c -c gr8cligui 192.168.171.121 .1.3.6.1.4.1.3577.2.1.2.1.4.1)
@@ -31,6 +36,8 @@ while [ $(date +%s) -lt $end_time ]; do
     oduTDMAPerformReceiveMCS=$(snmpwalk -v 2c -c gr8cligui 192.168.171.121 .1.3.6.1.4.1.3577.2.1.2.1.17.1)
     oduTDMAPerformCurrentSNR=$(snmpwalk -v 2c -c gr8cligui 192.168.171.121 .1.3.6.1.4.1.3577.2.1.2.1.18.1)
     # Add other SNMP commands as needed
+    
+    echo
 
     #Command for only one value of SNMP
     #oduTDMAPerformCurrentMCS=$(echo "$oduTDMAPerformCurrentMCS" | awk -F" " '{print $}'
